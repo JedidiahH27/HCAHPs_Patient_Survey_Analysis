@@ -26,3 +26,19 @@ CREATE TABLE HCAHPS_data
     start_date character varying(10),
     end_date character varying(10)
 );
+
+WITH cte_hospital_beds AS (SELECT LPAD(CAST(provider_ccn AS TEXT), 6, '0') AS provider_ccn,
+       hospital_name,
+       TO_DATE(fiscal_year_begin_date, 'MM/DD/YYYY') AS fiscal_year_begin_date,
+       TO_DATE(fiscal_year_end_date, 'MM/DD/YYYY') AS fiscal_year_end_date,
+       number_of_beds,
+       ROW_NUMBER() OVER(PARTITION BY provider_ccn ORDER BY fiscal_year_begin_date)
+FROM hospital_beds)
+
+SELECT provider_ccn, 
+       hospital_name, 
+       fiscal_year_begin_date,
+       fiscal_year_end_date,
+       number_of_beds
+FROM cte_hospital_beds
+WHERE row_number = 1;
