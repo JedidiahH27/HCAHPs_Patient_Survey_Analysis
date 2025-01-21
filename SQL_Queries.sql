@@ -25,7 +25,7 @@ CREATE TABLE HCAHPS_data
     survey_response_rate_percent integer,
     start_date character varying(10),
     end_date character varying(10)
-);
+)
 
 WITH cte_hospital_beds AS (SELECT LPAD(CAST(provider_ccn AS TEXT), 6, '0') AS provider_ccn,
        hospital_name,
