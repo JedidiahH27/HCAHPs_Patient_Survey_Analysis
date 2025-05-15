@@ -1,6 +1,8 @@
 # 🏥 How Satisfied Are Patients with Their Hospitals?
 A Tableau Dashboard on U.S. Hospital Patient Experience
 
+![HCAHPS Tableau Dashboard](images/HCAHPS_Dashboard_From_Tableau.png)
+
 This project explores patient satisfaction across more than 3,000 hospitals in the United States, using publicly available data from the Hospital Consumer Assessment of Healthcare Providers and Systems (HCAHPS). The goal was to clean, analyze, and visualize healthcare survey data to gain meaningful insights into hospital performance and patient experience.
 
 ## 📌 Project Objectives
